@@ -431,26 +431,40 @@ public class BendingController : ControllerBase
             return Ok(new
             {
                 success = result, // ✅ DÜZELTME: lowercase field standardı
-                message = result ? $"Parça pozisyonu {request.ResetDistance}mm mesafe ile sıfırlandı (Hassas konumlandırma)" 
+                message = result ? $"Parça pozisyonu {request.ResetDistance}mm mesafe ile sıfırlandı (ULTRA HASSAS konumlandırma)" 
                                 : "Parça sıfırlama başarısız",
                 ResetDistance = request.ResetDistance,
                 Algorithm = new
                 {
-                    Name = "3-aşamalı hassas konumlandırma",
+                    Name = "5-aşamalı ultra hassas konumlandırma",
                     Phases = new[]
                     {
-                        "Faz 1: Sol/Sağ parça sensöründen başlangıç yön belirleme",
-                        "Faz 2: Normal hızda sensör görene/görmeyene kadar hareket",
-                        "Faz 3: Çok yavaş hassas konumlandırma ile sensör kenarı bulma",
-                        "Faz 4: Alt top merkezine çekilme (resetDistance kadar rotasyon)"
+                        "Faz 1: Sol/Sağ parça sensöründen başlangıç yön belirleme (50ms okuma)",
+                        "Faz 2: Normal hızda sensör görene/görmeyene kadar hareket (3x üst üste kontrol)",
+                        "Faz 3: Orta hızda kaba konumlandırma (20% hız)",
+                        "Faz 4: Hassas konumlandırma (10% hız, 5x üst üste kontrol)",
+                        "Faz 5: Ultra hassas konumlandırma (5% hız, 8x üst üste kontrol)",
+                        "Faz 6: Alt top merkezine çekilme (resetDistance kadar hassas encoder rotasyon)"
                     },
                     EncoderFormula = "mesafe = (encoderRaw * Math.PI * 220.0) / 1024.0",
+                    NewFeatures = new[]
+                    {
+                        "Encoder okuma sıklığı: 20ms (50ms→20ms)",
+                        "Encoder toleransı: 1.0mm (3.0mm→1.0mm)",
+                        "6 kademeli hız kontrolü: 60%→40%→25%→15%→8%→4%",
+                        "Encoder drift kontrolü: 0.5mm tolerans",
+                        "Son yaklaşma kontrolü: 5mm'de özel kontrol",
+                        "Sensör okuma sıklığı: 50ms (100ms→50ms)",
+                        "Ultra hassas faz: 30ms okuma, 8x üst üste kontrol"
+                    },
                     SafetyControls = new[]
                     {
-                        "İlk 3 saniye encoder kontrolü pasif",
-                        "Encoder freeze timeout: 4s",
-                        "Max encoder stuck count: 5",
-                        "Encoder değişim eşiği: 1 pulse"
+                        "Encoder freeze timeout: 20 pulse (15→20)",
+                        "Max encoder stuck count: 20 (15→20)",
+                        "Encoder değişim eşiği: 2 pulse (1→2)",
+                        "İlerleme kontrolü: 0.1mm hassasiyet (0.5→0.1)",
+                        "Son yaklaşma timeout: 30 saniye",
+                        "Drift kontrolü: 0.5mm tolerans"
                     }
                 },
                 Timestamp = DateTime.UtcNow
@@ -871,7 +885,7 @@ public class BendingController : ControllerBase
                 return Ok(new 
                 { 
                     success = true, 
-                    message = "Paso test başarıyla tamamlandı",
+                    message = "Paso test başarıyla tamamlandı (HASSAS ENCODER ROTASYON)",
                     data = new 
                     {
                         totalSteps = (int)Math.Ceiling(request.SideBallTravelDistance / request.StepSize),
@@ -880,7 +894,17 @@ public class BendingController : ControllerBase
                         activeSensor = "Sol sensör (default)",
                         firstBendingSide = "Sağ (karşı) taraf",
                         initialReverseDistance = request.ProfileLength,
-                        rotationDistance = request.ProfileLength
+                        rotationDistance = request.ProfileLength,
+                        rotationAlgorithm = new
+                        {
+                            name = "Hassas Encoder Bazlı Rotasyon",
+                            encoderReadingFrequency = "20ms",
+                            encoderTolerance = "1.0mm",
+                            speedStages = "60%→40%→25%→15%→8%→4%",
+                            timeout = "150 saniye",
+                            driftControl = "0.5mm tolerans",
+                            finalApproach = "5mm'de özel kontrol"
+                        }
                     }
                 });
             }

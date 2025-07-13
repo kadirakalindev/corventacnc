@@ -2364,16 +2364,22 @@ public class MachineDriver : IMachineDriver
     /// <summary>
     /// DOKÜMANA GÖRE: Rotasyon bazlı parça sıfırlama algoritması
     /// </summary>
+    /// <summary>
+    /// 🎯 HASSAS ROTASYON BAZLI PARÇA SIFIRLAMA - Tamamen yeniden yazıldı
+    /// Sürekli sensör okuma ile hassas konumlandırma
+    /// Kademeli hız kontrolü ile yumuşak hareket
+    /// </summary>
     private async Task<bool> PerformRotationBasedResetAsync(double resetDistance, bool useLeftSensor)
     {
         try
         {
-            const double ballDiameter = 220.0; // mm - Alt orta top çapı (ayarlar sayfasından alınabilir)
-            const double normalSpeed = 40.0;    // Normal hız %40 (daha kontrollü)
-            const double mediumSpeed = 25.0;    // Orta hız %25 (kaba konumlandırma)
-            const double preciseSpeed = 15.0;   // Hassas hız %15 (hassas konumlandırma)
+            const double ballDiameter = 220.0; // mm - Alt orta top çapı
+            const double normalSpeed = 35.0;    // Normal hız %35 (40→35 daha kontrollü)
+            const double mediumSpeed = 20.0;    // Orta hız %20 (25→20 daha hassas)
+            const double preciseSpeed = 10.0;   // Hassas hız %10 (15→10 daha hassas)
+            const double ultraSpeed = 5.0;      // Ultra hassas hız %5 (yeni)
             
-            _logger?.LogInformation("🔄 Rotasyon bazlı sıfırlama başlatılıyor - Sensör: {Sensor}, Top Çapı: {Diameter}mm", 
+            _logger?.LogInformation("🎯 HASSAS ROTASYON BAZLI SIFIRLAMA BAŞLATILIYOR - Sensör: {Sensor}, Top Çapı: {Diameter}mm", 
                 useLeftSensor ? "Sol" : "Sağ", ballDiameter);
 
             // Adım 1: Parça varlık sensörü durumuna göre algoritma seç
@@ -2391,25 +2397,35 @@ public class MachineDriver : IMachineDriver
                 var clockwiseDirection = useLeftSensor ? RotationDirection.Clockwise : RotationDirection.CounterClockwise;
                 await StartRotationAsync(clockwiseDirection, normalSpeed);
                 
-                // Sensör görmeyene kadar bekle
-                var maxWaitTime = TimeSpan.FromSeconds(15); // 10s → 15s
+                // ✨ YENİ: Çok daha sık sensör okuma (100ms→50ms)
+                var maxWaitTime = TimeSpan.FromSeconds(20); // 15s→20s daha uzun timeout
                 var startTime = DateTime.UtcNow;
+                var sensorLostCount = 0;
+                const int requiredSensorLostCount = 3; // 3 kez üst üste görmemeli
                 
                 while ((DateTime.UtcNow - startTime) < maxWaitTime)
                 {
-                    await Task.Delay(100);
+                    await Task.Delay(50); // 100ms→50ms daha sık okuma
                     await UpdateMachineStatusAsync();
                     bool sensorStillSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
                     
                     if (!sensorStillSees)
                     {
-                        _logger?.LogInformation("✅ A.1 Tamamlandı: Sensör artık parçayı görmüyor");
-                        break;
+                        sensorLostCount++;
+                        if (sensorLostCount >= requiredSensorLostCount)
+                        {
+                            _logger?.LogInformation("✅ A.1 Tamamlandı: Sensör {Count} kez üst üste parçayı görmedi", requiredSensorLostCount);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        sensorLostCount = 0; // Reset counter
                     }
                 }
                 
                 await StopRotationAsync();
-                await Task.Delay(1000); // 500ms → 1000ms stabilizasyon
+                await Task.Delay(1500); // 1000ms→1500ms daha uzun stabilizasyon
             }
             else
             {
@@ -2422,22 +2438,32 @@ public class MachineDriver : IMachineDriver
                 var counterClockwiseDirection = useLeftSensor ? RotationDirection.CounterClockwise : RotationDirection.Clockwise;
                 await StartRotationAsync(counterClockwiseDirection, normalSpeed);
                 
-                // Sensör görene kadar bekle
-                var maxWaitTime = TimeSpan.FromSeconds(15); // 10s → 15s
+                // ✨ YENİ: Çok daha sık sensör okuma
+                var maxWaitTime = TimeSpan.FromSeconds(20); // 15s→20s
                 var startTime = DateTime.UtcNow;
                 bool sensorSaw = false;
+                var sensorSeenCount = 0;
+                const int requiredSensorSeenCount = 3; // 3 kez üst üste görmeli
                 
                 while ((DateTime.UtcNow - startTime) < maxWaitTime)
                 {
-                    await Task.Delay(100);
+                    await Task.Delay(50); // 100ms→50ms
                     await UpdateMachineStatusAsync();
                     bool sensorSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
                     
                     if (sensorSees)
                     {
-                        _logger?.LogInformation("✅ B.1 Tamamlandı: Sensör parçayı görmeye başladı");
-                        sensorSaw = true;
-                        break;
+                        sensorSeenCount++;
+                        if (sensorSeenCount >= requiredSensorSeenCount)
+                        {
+                            _logger?.LogInformation("✅ B.1 Tamamlandı: Sensör {Count} kez üst üste parçayı gördü", requiredSensorSeenCount);
+                            sensorSaw = true;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        sensorSeenCount = 0; // Reset counter
                     }
                 }
                 
@@ -2449,7 +2475,7 @@ public class MachineDriver : IMachineDriver
                     return false;
                 }
                 
-                await Task.Delay(1000); // 500ms → 1000ms stabilizasyon
+                await Task.Delay(1500); // 1000ms→1500ms
                 
                 // B.2: Saat yönünde rotasyon - sensör görmeyene kadar
                 _logger?.LogInformation("🔄 B.2: Saat yönünde normal hızda rotasyon ({Speed}%) - sensör görmeyene kadar", normalSpeed);
@@ -2458,21 +2484,31 @@ public class MachineDriver : IMachineDriver
                 await StartRotationAsync(clockwiseDirection, normalSpeed);
                 
                 startTime = DateTime.UtcNow;
+                sensorLostCount = 0;
+                
                 while ((DateTime.UtcNow - startTime) < maxWaitTime)
                 {
-                    await Task.Delay(100);
+                    await Task.Delay(50); // 100ms→50ms
                     await UpdateMachineStatusAsync();
                     bool sensorStillSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
                     
                     if (!sensorStillSees)
                     {
-                        _logger?.LogInformation("✅ B.2 Tamamlandı: Sensör artık parçayı görmüyor");
-                        break;
+                        sensorLostCount++;
+                        if (sensorLostCount >= requiredSensorLostCount)
+                        {
+                            _logger?.LogInformation("✅ B.2 Tamamlandı: Sensör {Count} kez üst üste parçayı görmedi", requiredSensorLostCount);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        sensorLostCount = 0;
                     }
                 }
                 
                 await StopRotationAsync();
-                await Task.Delay(1000); // 500ms → 1000ms stabilizasyon
+                await Task.Delay(1500); // 1000ms→1500ms
             }
             
             // Adım 2: Kaba konumlandırma - orta hızda ters rotasyon ile sensör yakınına gel
@@ -2483,29 +2519,28 @@ public class MachineDriver : IMachineDriver
             
             var mediumStartTime = DateTime.UtcNow;
             bool sensorSeenInMedium = false;
-            int sensorLostCount = 0;
-            const int requiredSensorLostCount = 3;
+            var mediumSensorSeenCount = 0;
+            const int requiredMediumSensorSeenCount = 3;
             
-            while ((DateTime.UtcNow - mediumStartTime) < TimeSpan.FromSeconds(15))
+            while ((DateTime.UtcNow - mediumStartTime) < TimeSpan.FromSeconds(20)) // 15s→20s
             {
-                await Task.Delay(100);
+                await Task.Delay(50); // 100ms→50ms
                 await UpdateMachineStatusAsync();
                 bool sensorSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
                 
                 if (sensorSees)
                 {
-                    _logger?.LogInformation("✅ Adım 2 Tamamlandı: Sensör parçayı görmeye başladı");
-                    sensorSeenInMedium = true;
-                    break;
+                    mediumSensorSeenCount++;
+                    if (mediumSensorSeenCount >= requiredMediumSensorSeenCount)
+                    {
+                        _logger?.LogInformation("✅ Adım 2 Tamamlandı: Sensör {Count} kez üst üste parçayı gördü", requiredMediumSensorSeenCount);
+                        sensorSeenInMedium = true;
+                        break;
+                    }
                 }
                 else
                 {
-                    sensorLostCount++;
-                    if (sensorLostCount >= requiredSensorLostCount)
-                    {
-                        _logger?.LogWarning("⚠️ Adım 2: Sensör kaybetti - {Count} kez kaybetme", sensorLostCount);
-                        break;
-                    }
+                    mediumSensorSeenCount = 0;
                 }
             }
             
@@ -2517,7 +2552,7 @@ public class MachineDriver : IMachineDriver
                 return false;
             }
             
-            await Task.Delay(1000); // 1 saniye stabilizasyon
+            await Task.Delay(1500); // 1000ms→1500ms
             
             // Adım 3: Hassas konumlandırma - çok yavaş hızda ters rotasyon ile tam konumlandırma
             _logger?.LogInformation("🎯 Adım 3: Hassas konumlandırma - çok yavaş hızda ters rotasyon ({Speed}%) - tam konumlandırma", preciseSpeed);
@@ -2526,18 +2561,28 @@ public class MachineDriver : IMachineDriver
             
             var preciseStartTime = DateTime.UtcNow;
             bool sensorSeenInPrecise = false;
+            var preciseSensorSeenCount = 0;
+            const int requiredPreciseSensorSeenCount = 5; // 3→5 daha hassas
             
-            while ((DateTime.UtcNow - preciseStartTime) < TimeSpan.FromSeconds(15))
+            while ((DateTime.UtcNow - preciseStartTime) < TimeSpan.FromSeconds(20)) // 15s→20s
             {
-                await Task.Delay(100);
+                await Task.Delay(50); // 100ms→50ms
                 await UpdateMachineStatusAsync();
                 bool sensorSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
                 
                 if (sensorSees)
                 {
-                    _logger?.LogInformation("✅ Adım 3 Tamamlandı: Sensör parçayı hassas konumda gördü");
-                    sensorSeenInPrecise = true;
-                    break;
+                    preciseSensorSeenCount++;
+                    if (preciseSensorSeenCount >= requiredPreciseSensorSeenCount)
+                    {
+                        _logger?.LogInformation("✅ Adım 3 Tamamlandı: Sensör {Count} kez üst üste parçayı hassas konumda gördü", requiredPreciseSensorSeenCount);
+                        sensorSeenInPrecise = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    preciseSensorSeenCount = 0;
                 }
             }
             
@@ -2546,17 +2591,58 @@ public class MachineDriver : IMachineDriver
             if (!sensorSeenInPrecise)
             {
                 _logger?.LogError("❌ Adım 3 Başarısız: Sensör parçayı görmedi - timeout");
-                            return false;
-                        }
+                return false;
+            }
                         
-            await Task.Delay(1000); // 1 saniye stabilizasyon
+            await Task.Delay(1500); // 1000ms→1500ms
+            
+            // ✨ YENİ: Adım 3.5: Ultra hassas konumlandırma
+            _logger?.LogInformation("🎯 Adım 3.5: Ultra hassas konumlandırma - ultra yavaş hızda ({Speed}%) - son konumlandırma", ultraSpeed);
+            
+            await StartRotationAsync(preciseDirection, ultraSpeed);
+            
+            var ultraStartTime = DateTime.UtcNow;
+            bool sensorSeenInUltra = false;
+            var ultraSensorSeenCount = 0;
+            const int requiredUltraSensorSeenCount = 8; // 5→8 daha hassas
+            
+            while ((DateTime.UtcNow - ultraStartTime) < TimeSpan.FromSeconds(15))
+            {
+                await Task.Delay(30); // 50ms→30ms çok daha sık
+                await UpdateMachineStatusAsync();
+                bool sensorSees = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
+                
+                if (sensorSees)
+                {
+                    ultraSensorSeenCount++;
+                    if (ultraSensorSeenCount >= requiredUltraSensorSeenCount)
+                    {
+                        _logger?.LogInformation("✅ Adım 3.5 Tamamlandı: Sensör {Count} kez üst üste parçayı ultra hassas konumda gördü", requiredUltraSensorSeenCount);
+                        sensorSeenInUltra = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    ultraSensorSeenCount = 0;
+                }
+            }
+            
+            await StopRotationAsync();
+            
+            if (!sensorSeenInUltra)
+            {
+                _logger?.LogWarning("⚠️ Adım 3.5 Başarısız: Ultra hassas konumlandırma yapılamadı, devam ediliyor");
+            }
+            
+            await Task.Delay(2000); // 1500ms→2000ms son stabilizasyon
             
             // Adım 4: Alt top merkezine çekilme (resetDistance kadar rotasyon)
-            _logger?.LogInformation("🎯 Adım 4: Alt top merkezine çekilme - {Distance}mm rotasyon", resetDistance);
+            _logger?.LogInformation("🎯 Adım 4: Alt top merkezine çekilme - {Distance:F2}mm rotasyon", resetDistance);
             
-            // Encoder parametrelerini esnetilmiş şekilde ayarla
+            // ✨ YENİ: Daha uzun timeout ve daha hassas encoder kontrolü
             var encoderOptions = new CancellationTokenSource();
-            encoderOptions.CancelAfter(TimeSpan.FromSeconds(90)); // 60s → 90s timeout
+            encoderOptions.CancelAfter(TimeSpan.FromSeconds(120)); // 90s→120s daha uzun timeout
             
             var rotationSuccess = await PerformPreciseEncoderRotationAsync(
                 useLeftSensor ? RotationDirection.Clockwise : RotationDirection.CounterClockwise,
@@ -2571,8 +2657,8 @@ public class MachineDriver : IMachineDriver
                 return false;
             }
             
-            _logger?.LogInformation("✅ Parça sıfırlama işlemi başarıyla tamamlandı");
-                return true;
+            _logger?.LogInformation("✅✅ HASSAS PARÇA SIFIRLAMA İŞLEMİ BAŞARIYLA TAMAMLANDI");
+            return true;
         }
         catch (Exception ex)
         {
@@ -4073,11 +4159,15 @@ public class MachineDriver : IMachineDriver
             _logger?.LogInformation("--- Operasyon #{OperationNum} Başlıyor ---", operationNumber);
             _logger?.LogDebug("Mevcut Pozisyonlar -> Sol: {LeftPos:F2}mm, Sağ: {RightPos:F2}mm", currentLeftPosition, currentRightPosition);
 
-            // 1. ADIM: Rotasyon
+            // 1. ADIM: Rotasyon - HASSAS ENCODER BAZLI
             var rotationDirection = isRightRotationOp ? RotationDirection.CounterClockwise : RotationDirection.Clockwise;
-            _logger?.LogInformation("🔄 Rotasyon Başlatılıyor: {Direction} ({ProfileLen}mm)", rotationDirection, profileLength);
+            _logger?.LogInformation("🔄 HASSAS ROTASYON BAŞLATILIYOR: {Direction} ({ProfileLen:F2}mm)", rotationDirection, profileLength);
             
-            var rotationSuccess = await PerformPreciseEncoderRotationAsync(rotationDirection, profileLength, 70, cancellationToken);
+            // ✨ YENİ: Paso test için özel encoder timeout (daha uzun)
+            var pasoEncoderOptions = new CancellationTokenSource();
+            pasoEncoderOptions.CancelAfter(TimeSpan.FromSeconds(150)); // 120s→150s paso için daha uzun
+            
+            var rotationSuccess = await PerformPreciseEncoderRotationAsync(rotationDirection, profileLength, 60, pasoEncoderOptions.Token);
             if (!rotationSuccess)
             {
                 _logger?.LogError("❌ Rotasyon başarısız - Operasyon #{OperationNum}", operationNumber);
@@ -4222,11 +4312,11 @@ public class MachineDriver : IMachineDriver
         try
         {
             const double ballDiameter = 220.0; // mm - Alt orta top çapı
-            const double maxRotationTimeSeconds = 120.0; // Maksimum rotasyon süresi
-            const double encoderTolerance = 3.0; // mm - Encoder toleransı (10.0mm→3.0mm)
-            const double minSuccessPercentage = 99.5; // Minimum başarı yüzdesi (98.0→99.5)
+            const double maxRotationTimeSeconds = 180.0; // Maksimum rotasyon süresi (120s→180s)
+            const double encoderTolerance = 1.0; // mm - Encoder toleransı (3.0mm→1.0mm) - ÇOK HASSAS
+            const double minSuccessPercentage = 99.0; // Minimum başarı yüzdesi (99.5→99.0)
             
-            _logger?.LogInformation("🔄 Hassas encoder bazlı rotasyon başlatılıyor - Yön: {Direction}, Hedef: {Target}mm", 
+            _logger?.LogInformation("🎯 HASSAS ENCODER ROTASYON BAŞLATILIYOR - Yön: {Direction}, Hedef: {Target:F2}mm", 
                 direction, targetDistance);
             
             // Başlangıç encoder pozisyonunu al
@@ -4234,25 +4324,29 @@ public class MachineDriver : IMachineDriver
             var startEncoderRaw = _currentStatus.RotationEncoderRaw;
             var startDistance = PulseToDistanceConvert(startEncoderRaw, ballDiameter);
             
-            _logger?.LogInformation("📍 Başlangıç encoder - Raw: {Raw}, Mesafe: {Distance:F2}mm", startEncoderRaw, startDistance);
+            _logger?.LogInformation("📍 Başlangıç encoder - Raw: {Raw}, Mesafe: {Distance:F3}mm", startEncoderRaw, startDistance);
             
             // Hedef encoder pozisyonunu hesapla
             var targetEncoderDistance = direction == RotationDirection.Clockwise ? 
                 startDistance + targetDistance : startDistance - targetDistance;
             
-            _logger?.LogInformation("🎯 Hedef encoder mesafesi: {Target:F2}mm", targetEncoderDistance);
+            _logger?.LogInformation("🎯 Hedef encoder mesafesi: {Target:F3}mm", targetEncoderDistance);
             
-            // Kademeli hız kontrolü için eşik değerleri (MUTLAK MESAFE)
+            // ✨ YENİ: Çok daha hassas kademeli hız kontrolü
             var currentTravelTarget = Math.Abs(targetDistance);
-            var stage1Threshold = currentTravelTarget * 0.70; // 0.80→0.70 (daha erken yavaşla)
-            var stage2Threshold = currentTravelTarget * 0.90; // 0.95→0.90
-            var stage3Threshold = currentTravelTarget * 0.95; // 0.99→0.95
+            var stage1Threshold = currentTravelTarget * 0.60; // %60'a kadar normal hız
+            var stage2Threshold = currentTravelTarget * 0.80; // %80'e kadar orta hız
+            var stage3Threshold = currentTravelTarget * 0.90; // %90'a kadar yavaş hız
+            var stage4Threshold = currentTravelTarget * 0.95; // %95'e kadar çok yavaş
+            var stage5Threshold = currentTravelTarget * 0.98; // %98'e kadar ultra yavaş
             
-            // Hız kademeleri - Daha yumuşak geçişler
-            const double stage1Speed = 100.0; // Başlangıç: %50 hız (80→50)
-            const double stage2Speed = 80.0; // %70'den sonra: %25 hız (30→25)
-            const double stage3Speed = 50.0; // %90'dan sonra: %15 hız (20→15)
-            const double stage4Speed = 30.0; // %95'den sonra: %10 hız (15→10)
+            // ✨ YENİ: Çok daha yumuşak hız kademeleri
+            const double stage1Speed = 60.0; // Başlangıç: %60 hız (100→60)
+            const double stage2Speed = 40.0; // %60'dan sonra: %40 hız (80→40)
+            const double stage3Speed = 25.0; // %80'den sonra: %25 hız (50→25)
+            const double stage4Speed = 15.0; // %90'dan sonra: %15 hız (30→15)
+            const double stage5Speed = 8.0;  // %95'den sonra: %8 hız (yeni)
+            const double stage6Speed = 4.0;  // %98'den sonra: %4 hız (yeni)
             
             // Rotasyonu başlat
             await StartRotationAsync(direction, stage1Speed);
@@ -4261,16 +4355,28 @@ public class MachineDriver : IMachineDriver
             var startTime = DateTime.UtcNow;
             var lastEncoderCheck = DateTime.UtcNow;
             var stuckCount = 0;
-            const int maxStuckCount = 15;
+            const int maxStuckCount = 20; // 15→20 (daha toleranslı)
             var previousEncoderRaw = startEncoderRaw;
             var lastProgressCheck = DateTime.UtcNow;
             var lastProgress = 0.0;
-            const int maxNoProgressCount = 8;
+            const int maxNoProgressCount = 10; // 8→10
             var noProgressCount = 0;
+            
+            // ✨ YENİ: Encoder drift kontrolü
+            var encoderReadings = new List<double>();
+            const int maxEncoderReadings = 10;
+            var lastStablePosition = startDistance;
+            var driftTolerance = 0.5; // mm - drift toleransı
+            
+            // ✨ YENİ: Hassas son yaklaşma kontrolü
+            var finalApproachStarted = false;
+            var finalApproachStartTime = DateTime.UtcNow;
+            const double finalApproachThreshold = 5.0; // mm - son 5mm'de özel kontrol
             
             while (!cancellationToken.IsCancellationRequested)
             {
-                await Task.Delay(50, cancellationToken);
+                // ✨ YENİ: Çok daha sık encoder okuma (50ms→20ms)
+                await Task.Delay(20, cancellationToken);
                 
                 // Timeout kontrolü
                 if ((DateTime.UtcNow - startTime).TotalSeconds > maxRotationTimeSeconds)
@@ -4285,8 +4391,27 @@ public class MachineDriver : IMachineDriver
                 var currentEncoderRaw = _currentStatus.RotationEncoderRaw;
                 var currentDistance = PulseToDistanceConvert(currentEncoderRaw, ballDiameter);
                 
-                // Encoder stuck kontrolü
-                if (Math.Abs(currentEncoderRaw - previousEncoderRaw) < 1)
+                // ✨ YENİ: Encoder drift kontrolü
+                encoderReadings.Add(currentDistance);
+                if (encoderReadings.Count > maxEncoderReadings)
+                {
+                    encoderReadings.RemoveAt(0);
+                }
+                
+                if (encoderReadings.Count >= 5)
+                {
+                    var avgPosition = encoderReadings.Average();
+                    var drift = Math.Abs(avgPosition - lastStablePosition);
+                    
+                    if (drift > driftTolerance)
+                    {
+                        _logger?.LogWarning("⚠️ Encoder drift tespit edildi: {Drift:F3}mm > {Tolerance:F3}mm", drift, driftTolerance);
+                        lastStablePosition = avgPosition;
+                    }
+                }
+                
+                // Encoder stuck kontrolü - daha toleranslı
+                if (Math.Abs(currentEncoderRaw - previousEncoderRaw) < 2) // 1→2 pulse
                 {
                     stuckCount++;
                     if (stuckCount >= maxStuckCount)
@@ -4307,18 +4432,34 @@ public class MachineDriver : IMachineDriver
                 var remainingDistance = Math.Abs(targetEncoderDistance - currentDistance);
                 var progressPercentage = (traveledDistance / currentTravelTarget) * 100.0;
                 
-                // İlerleme kontrolü (her 1 saniyede bir)
-                if ((DateTime.UtcNow - lastProgressCheck).TotalSeconds >= 1.0)
+                // ✨ YENİ: Son yaklaşma kontrolü
+                if (remainingDistance <= finalApproachThreshold && !finalApproachStarted)
                 {
-                    if (Math.Abs(traveledDistance - lastProgress) < 0.5)
+                    finalApproachStarted = true;
+                    finalApproachStartTime = DateTime.UtcNow;
+                    _logger?.LogInformation("🎯 SON YAKLAŞMA FAZI BAŞLADI - Kalan: {Remaining:F3}mm", remainingDistance);
+                }
+                
+                // Son yaklaşma timeout kontrolü
+                if (finalApproachStarted && (DateTime.UtcNow - finalApproachStartTime).TotalSeconds > 30)
+                {
+                    _logger?.LogError("❌ Son yaklaşma timeout! 30 saniyedir hassas konumlandırma yapılamıyor");
+                    await StopRotationAsync();
+                    return false;
+                }
+                
+                // İlerleme kontrolü (her 500ms'de bir)
+                if ((DateTime.UtcNow - lastProgressCheck).TotalMilliseconds >= 500)
+                {
+                    if (Math.Abs(traveledDistance - lastProgress) < 0.1) // 0.5→0.1mm (daha hassas)
                     {
                         noProgressCount++;
                         if (noProgressCount >= maxNoProgressCount)
                         {
-                            _logger?.LogError("❌ İlerleme durdu! {Count} saniyedir hareket yok. Mesafe: {Distance:F2}mm", 
-                                maxNoProgressCount, traveledDistance);
-                                await StopRotationAsync();
-                                return false;
+                            _logger?.LogError("❌ İlerleme durdu! {Count} saniyedir hareket yok. Mesafe: {Distance:F3}mm", 
+                                maxNoProgressCount * 0.5, traveledDistance);
+                            await StopRotationAsync();
+                            return false;
                         }
                     }
                     else
@@ -4329,60 +4470,66 @@ public class MachineDriver : IMachineDriver
                     lastProgressCheck = DateTime.UtcNow;
                 }
                 
-                _logger?.LogDebug("📊 MESAFE DURUMU - Başlangıç: {Start:F1}mm, Şu An: {Current:F1}mm, İlerleme: {Traveled:F1}mm (%{Progress:F1})", 
-                    startDistance, currentDistance, traveledDistance, progressPercentage);
-                
-                // Kademeli hız kontrolü (MUTLAK MESAFE)
+                // ✨ YENİ: Çok daha hassas kademeli hız kontrolü
                 if (traveledDistance >= stage1Threshold && traveledDistance < stage2Threshold && currentSpeed != stage2Speed)
                 {
-                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F1}mm - %{Percent:F1})", 
+                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F3}mm - %{Percent:F1})", 
                         currentSpeed, stage2Speed, traveledDistance, progressPercentage);
                     await SetRotationSpeedAsync(stage2Speed);
                     currentSpeed = stage2Speed;
-                    await Task.Delay(200); // 100ms→200ms (daha yumuşak geçiş)
+                    await Task.Delay(300); // 200ms→300ms (daha yumuşak geçiş)
                 }
                 else if (traveledDistance >= stage2Threshold && traveledDistance < stage3Threshold && currentSpeed != stage3Speed)
                 {
-                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F1}mm - %{Percent:F1})", 
+                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F3}mm - %{Percent:F1})", 
                         currentSpeed, stage3Speed, traveledDistance, progressPercentage);
                     await SetRotationSpeedAsync(stage3Speed);
                     currentSpeed = stage3Speed;
-                    await Task.Delay(200);
+                    await Task.Delay(300);
                 }
-                else if (traveledDistance >= stage3Threshold && currentSpeed != stage4Speed)
+                else if (traveledDistance >= stage3Threshold && traveledDistance < stage4Threshold && currentSpeed != stage4Speed)
                 {
-                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F1}mm - %{Percent:F1})", 
+                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F3}mm - %{Percent:F1})", 
                         currentSpeed, stage4Speed, traveledDistance, progressPercentage);
                     await SetRotationSpeedAsync(stage4Speed);
                     currentSpeed = stage4Speed;
-                    await Task.Delay(200);
+                    await Task.Delay(300);
                 }
-                
-                // Son 10mm için ekstra yavaş mod (15mm→10mm)
-                if (remainingDistance <= 10.0 && currentSpeed > stage4Speed)
+                else if (traveledDistance >= stage4Threshold && traveledDistance < stage5Threshold && currentSpeed != stage5Speed)
                 {
-                    _logger?.LogInformation("⚡ SON YAKLAŞMA: %{OldSpeed} → %{NewSpeed} (Kalan: {Remaining:F1}mm)", 
-                        currentSpeed, stage4Speed, remainingDistance);
-                    await SetRotationSpeedAsync(stage4Speed);
-                    currentSpeed = stage4Speed;
-                    await Task.Delay(200);
+                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F3}mm - %{Percent:F1})", 
+                        currentSpeed, stage5Speed, traveledDistance, progressPercentage);
+                    await SetRotationSpeedAsync(stage5Speed);
+                    currentSpeed = stage5Speed;
+                    await Task.Delay(300);
+                }
+                else if (traveledDistance >= stage5Threshold && currentSpeed != stage6Speed)
+                {
+                    _logger?.LogInformation("⚡ HIZ DEĞİŞİMİ: %{OldSpeed} → %{NewSpeed} (İlerleme: {Progress:F3}mm - %{Percent:F1})", 
+                        currentSpeed, stage6Speed, traveledDistance, progressPercentage);
+                    await SetRotationSpeedAsync(stage6Speed);
+                    currentSpeed = stage6Speed;
+                    await Task.Delay(300);
                 }
                 
-                // ✨ YENİ: Başarı kriteri - HEM tolerans içinde olmalı HEM minimum başarı yüzdesini aşmalı
+                // ✨ YENİ: Başarı kriteri - Hem tolerans içinde olmalı hem minimum başarı yüzdesini aşmalı
                 var successPercentage = (traveledDistance / currentTravelTarget) * 100.0;
                 if (remainingDistance <= encoderTolerance && successPercentage >= minSuccessPercentage)
                 {
-                    _logger?.LogInformation("✅ Encoder hedef mesafesine ulaşıldı! Başarı: %{Success:F1}", successPercentage);
-                    _logger?.LogInformation(" SONUÇ - Başlangıç: {Start:F2}mm → Hedef: {Target:F2}mm → Gerçek: {Actual:F2}mm (Fark: {Diff:F2}mm)", 
+                    _logger?.LogInformation("✅✅ HASSAS ENCODER HEDEFİNE ULAŞILDI! Başarı: %{Success:F1}", successPercentage);
+                    _logger?.LogInformation("🎯 SONUÇ - Başlangıç: {Start:F3}mm → Hedef: {Target:F3}mm → Gerçek: {Actual:F3}mm (Fark: {Diff:F3}mm)", 
                         startDistance, targetEncoderDistance, currentDistance, remainingDistance);
+                    
+                    // ✨ YENİ: Son stabilizasyon beklemesi
+                    await Task.Delay(500);
                     await StopRotationAsync();
                     return true;
                 }
                 
-                // Her 500ms'de bir progress log
-                if ((DateTime.UtcNow - lastEncoderCheck).TotalMilliseconds >= 500)
+                // Her 200ms'de bir progress log (500ms→200ms)
+                if ((DateTime.UtcNow - lastEncoderCheck).TotalMilliseconds >= 200)
                 {
-                    _logger?.LogDebug(" Encoder ilerlemesi - Mevcut: {Current:F2}mm, Hedef: {Target:F2}mm, Kalan: {Remaining:F2}mm, Hız: %{Speed}", 
+                    _logger?.LogDebug("📊 Encoder ilerlemesi - Mevcut: {Current:F3}mm, Hedef: {Target:F3}mm, Kalan: {Remaining:F3}mm, Hız: %{Speed}", 
                         currentDistance, targetEncoderDistance, remainingDistance, currentSpeed);
                     lastEncoderCheck = DateTime.UtcNow;
                 }
@@ -4390,7 +4537,7 @@ public class MachineDriver : IMachineDriver
             
             await StopRotationAsync();
             _logger?.LogWarning("⚠️ Hassas encoder rotasyon iptal edildi");
-                return false;
+            return false;
         }
         catch (Exception ex)
         {
