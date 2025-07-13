@@ -1,0 +1,144 @@
+{
+  "Modbus": {
+    "IpAddress": "192.168.1.100",
+    "Port": 502,
+    "SlaveId": 1,
+    "TimeoutMs": 3000,
+    "RetryCount": 3,
+    "UpdateIntervalMs": 100
+  },
+  "Pistons": {
+    "TopPiston": {
+      "Name": "Top Piston",
+      "StrokeLength": 160.0,
+      "RegisterCount": 32767,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "BottomPiston": {
+      "Name": "Bottom Piston",
+      "StrokeLength": 195.0,
+      "RegisterCount": 32767,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "LeftPiston": {
+      "Name": "Left Piston",
+      "StrokeLength": 422.0,
+      "RegisterCount": 32767,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "RightPiston": {
+      "Name": "Right Piston",
+      "StrokeLength": 422.0,
+      "RegisterCount": 32767,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "LeftReelPiston": {
+      "Name": "Left Reel Piston",
+      "StrokeLength": 352.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "RightReelPiston": {
+      "Name": "Right Reel Piston",
+      "StrokeLength": 352.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "LeftBodyPiston": {
+      "Name": "Left Body Piston",
+      "StrokeLength": 129.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "RightBodyPiston": {
+      "Name": "Right Body Piston",
+      "StrokeLength": 129.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "LeftJoinPiston": {
+      "Name": "Left Join Piston",
+      "StrokeLength": 187.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    },
+    "RightJoinPiston": {
+      "Name": "Right Join Piston",
+      "StrokeLength": 187.0,
+      "RegisterCount": 4095,
+      "PositionTolerance": 1.0,
+      "MaxSpeed": 10.0,
+      "DefaultSpeed": 5.0
+    }
+  },
+  "Stages": {
+    "Stages": [
+      {
+        "Name": "Stage 0",
+        "Value": 0.0,
+        "LeftPistonOffset": 0.0,
+        "RightPistonOffset": 0.0
+      },
+      {
+        "Name": "Stage 60",
+        "Value": 60.0,
+        "LeftPistonOffset": 67.34,
+        "RightPistonOffset": 67.34
+      },
+      {
+        "Name": "Stage 120",
+        "Value": 120.0,
+        "LeftPistonOffset": 134.68,
+        "RightPistonOffset": 134.68
+      }
+    ]
+  },
+  "Balls": {
+    "TopBallDiameter": 220.0,
+    "BottomBallDiameter": 220.0,
+    "LeftBallDiameter": 220.0,
+    "RightBallDiameter": 220.0,
+    "TopBallReferenceMaxHeight": 473.0
+  },
+  "Geometry": {
+    "TriangleWidth": 493.0,
+    "TriangleAngle": 27.0,
+    "DefaultProfileHeight": 80.0,
+    "DefaultBendingRadius": 500.0,
+    "StepSize": 20.0
+  },
+  "Safety": {
+    "MaxPressure": 200.0,
+    "DefaultTargetPressure": 60.0,
+    "PressureTolerance": 2.0,
+    "WorkingOilTemperature": 40.0,
+    "MaxOilTemperature": 80.0,
+    "MinOilLevel": 20.0,
+    "FanOnTemperature": 50.0,
+    "FanOffTemperature": 40.0
+  },
+  "OilSystem": {
+    "S1MaxPressure": 400.0,
+    "S2MaxPressure": 400.0,
+    "MaxFlowRate": 297.0,
+    "MinFlowRate": 0.0
+  }
+} 

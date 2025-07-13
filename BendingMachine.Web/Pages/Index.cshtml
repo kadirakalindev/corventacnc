@@ -1,0 +1,860 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Corventa Büküm Makinesi - İzleme Paneli";
+}
+
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-6 text-primary">
+                    <i class="fas fa-cogs me-2"></i>
+                    Corventa Büküm Makinesi İzleme Paneli
+                </h1>
+                <div class="d-flex gap-2">
+                    <a href="/AutoBending" class="btn btn-outline-primary">
+                        <i class="fas fa-magic me-1"></i> Otomatik Büküm
+                    </a>
+                    <span id="connectionStatus" class="badge bg-secondary">Bağlanıyor...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Cards Row -->
+    <div class="row mb-4">
+        <!-- Bağlantı Durumu -->
+        <div class="col-md-3">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="mb-0">Bağlantı Durumu</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-2">
+                        <span class="badge bg-success">API Bağlı</span>
+                    </div>
+                    <div class="mb-2">
+                        <span id="machineConnectionStatus" class="badge bg-danger">Makine Bağlı Değil</span>
+                    </div>
+                    <small class="text-muted">Son Güncelleme: <span id="lastUpdate">--:--:--</span></small>
+                    <div class="mt-2">
+                        <button id="btnConnect" class="btn btn-success btn-sm">Bağlan</button>
+                        <button id="btnDisconnect" class="btn btn-danger btn-sm">Bağlantıyı Kes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Genel Durum -->
+        <div class="col-md-3">
+            <div class="card border-info">
+                <div class="card-header bg-info text-white">
+                    <h6 class="mb-0">Genel Durum</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-2">
+                        <span class="text-muted">Çalışma Modu:</span>
+                        <span id="workingMode" class="badge bg-info">Manuel</span>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-muted">Hidrolik Motor:</span>
+                        <span id="hydraulicStatus" class="badge bg-secondary">Kapalı</span>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-muted">Fan Motor:</span>
+                        <span id="fanStatus" class="badge bg-secondary">Kapalı</span>
+                    </div>
+                    <div>
+                        <span class="text-muted">Alarm:</span>
+                        <span id="alarmStatus" class="badge bg-secondary">Pasif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sensör Durumları -->
+        <div class="col-md-3">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h6 class="mb-0">Sensör Durumları</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <span id="sensorEmergencyStop" class="badge bg-success">Normal</span>
+                            <small class="d-block">Acil Stop</small>
+                        </div>
+                        <div class="col-6">
+                            <span id="sensorHydraulicThermal" class="badge bg-success">Normal</span>
+                            <small class="d-block">Hidrolik Termal</small>
+                        </div>
+                        <div class="col-6">
+                            <span id="sensorFanThermal" class="badge bg-success">Normal</span>
+                            <small class="d-block">Fan Termal</small>
+                        </div>
+                        <div class="col-6">
+                            <span id="sensorPhaseSequence" class="badge bg-success">Normal</span>
+                            <small class="d-block">Faz Sırası</small>
+                        </div>
+                        <div class="col-6">
+                            <span id="sensorLeftPart" class="badge bg-secondary">Pasif</span>
+                            <small class="d-block">Sol Parça</small>
+                        </div>
+                        <div class="col-6">
+                            <span id="sensorRightPart" class="badge bg-secondary">Pasif</span>
+                            <small class="d-block">Sağ Parça</small>
+                        </div>
+                        <div class="col-4">
+                            <span id="sensorRotation" class="badge bg-warning">Durgun</span>
+                            <small class="d-block">Rotasyon</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yağ Sistemi -->
+        <div class="col-md-3">
+            <div class="card border-warning">
+                <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0">Yağ Sistemi</h6>
+                    <span id="oilSystemStatus" class="badge bg-success">SAĞLIKLI</span>
+                </div>
+                <div class="card-body p-2">
+                    <!-- Basınç Grubu -->
+                    <div class="border-bottom pb-2 mb-2">
+                        <small class="text-muted d-block mb-1">BASINÇ GRUBU</small>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span class="text-muted">S1:</span>
+                                <span id="s1Pressure" class="fw-bold">0.00 bar</span>
+                            </div>
+                            <div>
+                                <span class="text-muted">S2:</span>
+                                <span id="s2Pressure" class="fw-bold">0.00 bar</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Akış Grubu -->
+                    <div class="border-bottom pb-2 mb-2">
+                        <small class="text-muted d-block mb-1">AKIŞ HIZI</small>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span class="text-muted">S1:</span>
+                                <span id="s1Flow" class="fw-bold">0.00 cm/sn</span>
+                            </div>
+                            <div>
+                                <span class="text-muted">S2:</span>
+                                <span id="s2Flow" class="fw-bold">0.00 cm/sn</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Yağ Durumu -->
+                    <div class="border-bottom pb-2 mb-2">
+                        <small class="text-muted d-block mb-1">YAĞ DURUMU</small>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span class="text-muted">Sıcaklık:</span>
+                                <span id="oilTemperature" class="fw-bold">35.30 °C</span>
+                            </div>
+                            <div>
+                                <span class="text-muted">Nem:</span>
+                                <span id="oilHumidity" class="fw-bold">27.60 %</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tank Seviyesi -->
+                    <div>
+                        <small class="text-muted d-block mb-1">TANK SEVİYESİ</small>
+                        <div class="progress" style="height: 25px;">
+                            <div id="oilLevelProgress" class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                <span id="oilLevel" class="fw-bold">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana Pistonlar -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Ana Pistonlar</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Üst Piston -->
+                        <div class="col-md-3">
+                            <div class="card border-danger">
+                                <div class="card-header bg-danger text-white text-center">
+                                    <h6 class="mb-0">Üst Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <div class="mb-2">
+                                            <span class="text-muted">Voltaj:</span>
+                                            <span id="topPistonVoltage" class="fw-bold">0.00 V</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-muted">Pozisyon:</span>
+                                            <span id="topPistonPosition" class="fw-bold">29.06 mm</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <button id="btnTopPistonForward" class="btn btn-success btn-sm w-100 mb-1">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnTopPistonBackward" class="btn btn-warning btn-sm w-100">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label class="form-label">Pozisyon (mm):</label>
+                                        <div class="input-group">
+                                            <input type="number" id="topPistonTargetPosition" class="form-control form-control-sm" min="0" max="500" step="0.1">
+                                            <button id="btnTopPistonGo" class="btn btn-primary btn-sm">Git</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alt Piston -->
+                        <div class="col-md-3">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white text-center">
+                                    <h6 class="mb-0">Alt Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <div class="mb-2">
+                                            <span class="text-muted">Voltaj:</span>
+                                            <span id="bottomPistonVoltage" class="fw-bold">0.00 V</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-muted">Pozisyon:</span>
+                                            <span id="bottomPistonPosition" class="fw-bold">66.07 mm</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <button id="btnBottomPistonForward" class="btn btn-success btn-sm w-100 mb-1">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnBottomPistonBackward" class="btn btn-warning btn-sm w-100">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label class="form-label">Pozisyon (mm):</label>
+                                        <div class="input-group">
+                                            <input type="number" id="bottomPistonTargetPosition" class="form-control form-control-sm" min="0" max="500" step="0.1">
+                                            <button id="btnBottomPistonGo" class="btn btn-primary btn-sm">Git</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sol Piston -->
+                        <div class="col-md-3">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning text-white text-center">
+                                    <h6 class="mb-0">Sol Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <div class="mb-2">
+                                            <span class="text-muted">Voltaj:</span>
+                                            <span id="leftPistonVoltage" class="fw-bold">0.00 V</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-muted">Pozisyon:</span>
+                                            <span id="leftPistonPosition" class="fw-bold">260.22 mm</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <button id="btnLeftPistonForward" class="btn btn-success btn-sm w-100 mb-1">
+                                            <i class="fas fa-arrow-left"></i> İleri
+                                        </button>
+                                        <button id="btnLeftPistonBackward" class="btn btn-warning btn-sm w-100">
+                                            <i class="fas fa-arrow-right"></i> Geri
+                                        </button>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label class="form-label">Pozisyon (mm):</label>
+                                        <div class="input-group">
+                                            <input type="number" id="leftPistonTargetPosition" class="form-control form-control-sm" min="0" max="500" step="0.1">
+                                            <button id="btnLeftPistonGo" class="btn btn-primary btn-sm">Git</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sağ Piston -->
+                        <div class="col-md-3">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white text-center">
+                                    <h6 class="mb-0">Sağ Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <div class="mb-2">
+                                            <span class="text-muted">Voltaj:</span>
+                                            <span id="rightPistonVoltage" class="fw-bold">0.00 V</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-muted">Pozisyon:</span>
+                                            <span id="rightPistonPosition" class="fw-bold">354.29 mm</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <button id="btnRightPistonForward" class="btn btn-success btn-sm w-100 mb-1">
+                                            <i class="fas fa-arrow-right"></i> İleri
+                                        </button>
+                                        <button id="btnRightPistonBackward" class="btn btn-warning btn-sm w-100">
+                                            <i class="fas fa-arrow-left"></i> Geri
+                                        </button>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label class="form-label">Pozisyon (mm):</label>
+                                        <div class="input-group">
+                                            <input type="number" id="rightPistonTargetPosition" class="form-control form-control-sm" min="0" max="500" step="0.1">
+                                            <button id="btnRightPistonGo" class="btn btn-primary btn-sm">Git</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hız Kontrol Slider'ları -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card bg-light">
+                                <div class="card-header">
+                                    <h6 class="mb-0 text-center">Genel Hız Kontrol Ayarları</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="negativeSpeedSlider" class="form-label">Geri Hareket Hızı (0V / -10V):</label>
+                                            <div class="d-flex align-items-center">
+                                                <span class="me-2">0V</span>
+                                                <input type="range" class="form-range" id="negativeSpeedSlider" min="0" max="10" step="0.1" value="5">
+                                                <span class="ms-2">-10V</span>
+                                            </div>
+                                            <div class="text-center">
+                                                <span id="negativeSpeedValue" class="badge bg-warning">-5.0 V</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="positiveSpeedSlider" class="form-label">İleri Hareket Hızı (0V / +10V):</label>
+                                            <div class="d-flex align-items-center">
+                                                <span class="me-2">0V</span>
+                                                <input type="range" class="form-range" id="positiveSpeedSlider" min="0" max="10" step="0.1" value="5">
+                                                <span class="ms-2">+10V</span>
+                                            </div>
+                                            <div class="text-center">
+                                                <span id="positiveSpeedValue" class="badge bg-success">+5.0 V</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yan Dayamalar -->
+    <div class="row mb-4">
+        <!-- Sol Yan Dayamalar -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Sol Yan Dayamalar</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Makara</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">80.60 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnLeftReelForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnLeftReelBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Gövde</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">31.92 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnLeftBodyForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnLeftBodyBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Join Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">26.20 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnLeftJoinForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnLeftJoinBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sağ Yan Dayamalar -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Sağ Yan Dayamalar</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Makara</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">20.27 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnRightReelForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnRightReelBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Gövde</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">21.52 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnRightBodyForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnRightBodyBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-secondary">
+                                <div class="card-header text-center">
+                                    <h6 class="mb-0">Join Piston</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-2">
+                                        <span class="badge bg-secondary">İleri Kapalı</span>
+                                        <span class="badge bg-secondary">Geri Kapalı</span>
+                                    </div>
+                                    <div class="text-center mb-3">
+                                        <span class="fw-bold">10.21 mm</span>
+                                    </div>
+                                    <div class="d-grid gap-1">
+                                        <button id="btnRightJoinForward" class="btn btn-success btn-sm">
+                                            <i class="fas fa-arrow-up"></i> İleri
+                                        </button>
+                                        <button id="btnRightJoinBackward" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-arrow-down"></i> Geri
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rotasyon Kontrolleri -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Rotasyon Kontrolleri & Hassas Konumlandırma</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Manuel Rotasyon Kontrolleri -->
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <h6>Manuel Rotasyon</h6>
+                                <div class="mb-3">
+                                    <span class="text-muted">Durum:</span>
+                                    <span id="rotationStatus" class="badge bg-secondary">Pasif</span>
+                                </div>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <button id="btnRotationForward" class="btn btn-success">
+                                        <i class="fas fa-rotate-right"></i> İleri Rotasyon
+                                    </button>
+                                    <button id="btnRotationBackward" class="btn btn-warning">
+                                        <i class="fas fa-rotate-left"></i> Geri Rotasyon
+                                    </button>
+                                    <button id="btnRotationStop" class="btn btn-danger">
+                                        <i class="fas fa-stop"></i> Rotasyon Dur
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Precision Reset UI -->
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <h6>Hassas Parça Sıfırlama</h6>
+                                <div class="mb-3">
+                                    <button id="btnPrecisionReset" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-crosshairs"></i> Hassas Sıfırlama Başlat
+                                    </button>
+                                </div>
+                                
+                                <!-- Precision Control Status Panel -->
+                                <div id="precisionControlPanel" class="border rounded p-3 bg-light" style="display: none;">
+                                    <h6 class="text-primary mb-3">Hassas Konumlandırma Durumu</h6>
+                                    
+                                    <!-- Phase Indicator -->
+                                    <div class="mb-3">
+                                        <span class="text-muted">Mevcut Faz:</span>
+                                        <span id="currentPhase" class="badge bg-info ms-2">Bekleme</span>
+                                    </div>
+                                    
+                                    <!-- Progress Bar -->
+                                    <div class="mb-3">
+                                        <label class="form-label small">İlerleme:</label>
+                                        <div class="progress">
+                                            <div id="resetProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                                 role="progressbar" style="width: 0%">0%</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Speed & Distance Info -->
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <small class="text-muted">Mevcut Hız</small>
+                                            <div id="currentSpeed" class="fw-bold text-primary">0%</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">Kalan Mesafe</small>
+                                            <div id="remainingDistance" class="fw-bold text-warning">-- mm</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Encoder Position -->
+                                    <div class="mt-3 text-center">
+                                        <small class="text-muted">Encoder Pozisyon</small>
+                                        <div id="encoderPosition" class="fw-bold text-success">0 pulse</div>
+                                    </div>
+                                    
+                                    <!-- Stop Button -->
+                                    <div class="mt-3">
+                                        <button id="btnStopPrecisionReset" class="btn btn-danger btn-sm w-100">
+                                            <i class="fas fa-stop"></i> Hassas Sıfırlamayı Durdur
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Makine Kontrolleri -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Makine Kontrolleri</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <h6>Hidrolik Motor</h6>
+                            <div class="d-grid gap-2">
+                                <button id="btnStartHydraulic" class="btn btn-success">
+                                    <i class="fas fa-play"></i> Çalıştır
+                                </button>
+                                <button id="btnStopHydraulic" class="btn btn-danger">
+                                    <i class="fas fa-stop"></i> Durdur
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Fan Motor</h6>
+                            <div class="d-grid gap-2">
+                                <button id="btnStartFan" class="btn btn-success">
+                                    <i class="fas fa-play"></i> Çalıştır
+                                </button>
+                                <button id="btnStopFan" class="btn btn-danger">
+                                    <i class="fas fa-stop"></i> Durdur
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Alarm</h6>
+                            <div class="d-grid gap-2">
+                                <button id="btnStartAlarm" class="btn btn-warning">
+                                    <i class="fas fa-bell"></i> Çalıştır
+                                </button>
+                                <button id="btnStopAlarm" class="btn btn-secondary">
+                                    <i class="fas fa-bell-slash"></i> Durdur
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Acil Durdur</h6>
+                            <div class="d-grid gap-2">
+                                <button id="btnEmergencyStop" class="btn btn-danger">
+                                    <i class="fas fa-exclamation-triangle"></i> ACİL DURDUR
+                                </button>
+                                <button id="btnResetAlarm" class="btn btn-success">
+                                    <i class="fas fa-refresh"></i> SİSTEM SIFIRLA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cetvel Sıfırlama Kontrolleri -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Cetvel Sıfırlama & Kalibrasyon</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Cetvel Durumu -->
+                        <div class="col-md-6">
+                            <h6 class="text-warning mb-3">Cetvel Durumu</h6>
+                            <div class="row text-center">
+                                <div class="col-6 mb-3">
+                                    <span class="text-muted">M13-M16 (Üst/Alt):</span>
+                                    <div id="rulerStatusM13M16" class="badge bg-secondary">Kontrol Ediliyor...</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <span class="text-muted">M17-M20 (Sol/Sağ):</span>
+                                    <div id="rulerStatusM17M20" class="badge bg-secondary">Kontrol Ediliyor...</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <span class="text-muted">Pnömatik Valf:</span>
+                                    <div id="rulerStatusPneumatic" class="badge bg-secondary">Kontrol Ediliyor...</div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <span class="text-muted">Rotasyon:</span>
+                                    <div id="rulerStatusRotation" class="badge bg-secondary">Kontrol Ediliyor...</div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button id="btnCheckRulerStatus" class="btn btn-info btn-sm">
+                                    <i class="fas fa-search"></i> Cetvel Durumunu Kontrol Et
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Cetvel Sıfırlama İşlemleri -->
+                        <div class="col-md-6">
+                            <h6 class="text-danger mb-3">Sıfırlama İşlemleri</h6>
+                            <div class="alert alert-warning alert-sm">
+                                <small><strong>Uyarı:</strong> Cetvel sıfırlama tüm pistonları hareket ettirir. Güvenlik önlemlerini alın!</small>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button id="btnResetRulers" class="btn btn-warning btn-lg">
+                                    <i class="fas fa-tools"></i> Cetvel Sıfırlama Başlat
+                                </button>
+                                <button id="btnStopRulerReset" class="btn btn-danger" disabled>
+                                    <i class="fas fa-stop"></i> Sıfırlamayı Durdur
+                                </button>
+                            </div>
+                            
+                            <!-- Reset Progress Panel -->
+                            <div id="rulerResetPanel" class="border rounded p-3 bg-light mt-3" style="display: none;">
+                                <h6 class="text-warning mb-3">Cetvel Sıfırlama İlerlemesi</h6>
+                                
+                                <!-- Current Step -->
+                                <div class="mb-3">
+                                    <span class="text-muted">Mevcut Adım:</span>
+                                    <span id="resetCurrentStep" class="badge bg-info ms-2">Bekleme</span>
+                                </div>
+                                
+                                <!-- Progress Bar -->
+                                <div class="mb-3">
+                                    <label class="form-label small">İlerleme:</label>
+                                    <div class="progress">
+                                        <div id="rulerResetProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" 
+                                             role="progressbar" style="width: 0%">0%</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Status Info -->
+                                <div class="small text-muted">
+                                    <div id="resetStatusInfo">Cetvel sıfırlama başlatılmaya hazır...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Piston Positions -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title">Piston Pozisyonları</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Ana Pistonlar</h6>
+                    <div class="mb-2">
+                        <strong>Üst Piston:</strong> <span id="topPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Alt Piston:</strong> <span id="bottomPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sol Piston:</strong> <span id="leftPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sağ Piston:</strong> <span id="rightPistonPosition">0.00</span> mm
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h6>Yan Dayama Pistonları</h6>
+                    <div class="mb-2">
+                        <strong>Sol Makara:</strong> <span id="leftReelPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sağ Makara:</strong> <span id="rightReelPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sol Gövde:</strong> <span id="leftBodyPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sağ Gövde:</strong> <span id="rightBodyPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sol Join:</strong> <span id="leftJoinPistonPosition">0.00</span> mm
+                    </div>
+                    <div class="mb-2">
+                        <strong>Sağ Join:</strong> <span id="rightJoinPistonPosition">0.00</span> mm
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="alertToast" class="toast" role="alert">
+        <div class="toast-header">
+            <strong class="me-auto">Bildirim</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body" id="toastMessage"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@@latest/dist/browser/signalr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="~/js/machine-monitor.js"></script>
+}

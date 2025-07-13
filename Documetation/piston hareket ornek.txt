@@ -1,0 +1,58 @@
+public override MotionEnum Motion
+{
+    get
+    {
+        if (Value < 0 && S1Valve)
+        {
+            return MotionEnum.Forward;
+        }
+        else if (Value > 0 && S1Valve)
+        {
+            return MotionEnum.Backward;
+        }
+        else
+        {
+            return MotionEnum.Closed;
+        }
+    }
+    set
+    {
+        if (_client.GetCoil(Address.HydraulicEngineThermalError))
+        {
+            if (_client.GetCoil(Address.HydraulicEngine))
+            {
+                bool[] isS1Open = MotoinRules.IsS1Open(_client);
+                if ( MotionEnum.Forward == value)
+                {
+                    _setValue = _setValue > 0 ? 0 - _setValue : _setValue;
+                    _client.SetRegister(_address, _setValue);
+                    _client.SetCoil(Address.S1, true);
+                }
+                else if (MotionEnum.Backward == value)
+                {
+                    _setValue = Math.Abs(_setValue);
+                    _client.SetRegister(_address, _setValue);
+                    _client.SetCoil(Address.S1, true);
+                }
+                else
+                {
+                    if (isS1Open.Count(p => p == true) == 1)
+                    {
+                        _client.SetCoil(Address.S1, false);
+                    }
+                    _client.SetRegister(_address, 0);
+                }
+            }
+            else
+            {
+                Debug.WriteLine("HydraulicNotRunningException");
+                //throw new HydraulicNotRunningException();
+            }
+        }
+        else
+        {
+            Debug.WriteLine("HydraulicThermalErrorException");
+            //throw new HydraulicThermalErrorException();
+        }
+    }
+}

@@ -1,0 +1,34 @@
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingM.03E7877A.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\refint\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Driver\obj\Debug\net9.0\ref\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingM.03E7877A.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\refint\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Driver\obj\Debug\net9.0\ref\BendingMachine.Driver.dll

@@ -1,0 +1,360 @@
+@page
+@model BendingMachine.Web.Pages.SettingsModel
+@{
+    ViewData["Title"] = "Makine Ayarları";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-wrench"></i> Makine Ayarları</h2>
+                <div class="btn-group">
+                    <button class="btn btn-success" onclick="saveConfiguration()">
+                        <i class="fas fa-save"></i> Kaydet
+                    </button>
+                    <button class="btn btn-warning" onclick="loadConfiguration()">
+                        <i class="fas fa-refresh"></i> Yükle
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetToDefaults()">
+                        <i class="fas fa-undo"></i> Varsayılan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Configuration Tabs -->
+    <div class="row">
+        <div class="col-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-modbus-tab" data-bs-toggle="tab" data-bs-target="#nav-modbus" type="button">
+                        <i class="fas fa-network-wired"></i> Modbus Ayarları
+                    </button>
+                    <button class="nav-link" id="nav-stages-tab" data-bs-toggle="tab" data-bs-target="#nav-stages" type="button">
+                        <i class="fas fa-layer-group"></i> Stage Ayarları
+                    </button>
+                    <button class="nav-link" id="nav-balls-tab" data-bs-toggle="tab" data-bs-target="#nav-balls" type="button">
+                        <i class="fas fa-circle"></i> Top Çapları
+                    </button>
+                    <button class="nav-link" id="nav-geometry-tab" data-bs-toggle="tab" data-bs-target="#nav-geometry" type="button">
+                        <i class="fas fa-shapes"></i> Geometri
+                    </button>
+                    <button class="nav-link" id="nav-safety-tab" data-bs-toggle="tab" data-bs-target="#nav-safety" type="button">
+                        <i class="fas fa-shield-alt"></i> Güvenlik
+                    </button>
+                    <button class="nav-link" id="nav-oil-tab" data-bs-toggle="tab" data-bs-target="#nav-oil" type="button">
+                        <i class="fas fa-oil-can"></i> Yağ Sistemi
+                    </button>
+                    <button class="nav-link" id="nav-pistons-tab" data-bs-toggle="tab" data-bs-target="#nav-pistons" type="button">
+                        <i class="fas fa-arrows-alt"></i> Piston Ayarları
+                    </button>
+                </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+                <!-- Modbus Ayarları -->
+                <div class="tab-pane fade show active" id="nav-modbus" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-network-wired"></i> Modbus TCP/IP Bağlantı Ayarları</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">IP Adresi:</label>
+                                        <input type="text" id="modbusIpAddress" class="form-control" placeholder="192.168.1.100">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Port:</label>
+                                        <input type="number" id="modbusPort" class="form-control" min="1" max="65535" placeholder="502">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Slave ID:</label>
+                                        <input type="number" id="modbusSlaveId" class="form-control" min="1" max="255" placeholder="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Timeout (ms):</label>
+                                        <input type="number" id="modbusTimeout" class="form-control" min="1000" max="30000" placeholder="3000">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Retry Count:</label>
+                                        <input type="number" id="modbusRetryCount" class="form-control" min="1" max="10" placeholder="3">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Update Interval (ms):</label>
+                                        <input type="number" id="modbusUpdateInterval" class="form-control" min="50" max="1000" placeholder="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage Ayarları -->
+                <div class="tab-pane fade" id="nav-stages" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5><i class="fas fa-layer-group"></i> Stage Konfigürasyonu</h5>
+                            <button class="btn btn-primary btn-sm" onclick="addStage()">
+                                <i class="fas fa-plus"></i> Yeni Stage
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div id="stagesContainer">
+                                <!-- Stage entries will be dynamically generated -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Çapları -->
+                <div class="tab-pane fade" id="nav-balls" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-circle"></i> Vals Top Çapları (mm)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Üst Top Çapı:</label>
+                                        <input type="number" id="topBallDiameter" class="form-control" min="100" max="500" step="0.1" placeholder="220">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Alt Top Çapı:</label>
+                                        <input type="number" id="bottomBallDiameter" class="form-control" min="100" max="500" step="0.1" placeholder="220">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Sol Top Çapı:</label>
+                                        <input type="number" id="leftBallDiameter" class="form-control" min="100" max="500" step="0.1" placeholder="220">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Sağ Top Çapı:</label>
+                                        <input type="number" id="rightBallDiameter" class="form-control" min="100" max="500" step="0.1" placeholder="220">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Üst Top Referans Max Yükseklik:</label>
+                                        <input type="number" id="topBallReferenceMaxHeight" class="form-control" min="200" max="1000" step="0.1" placeholder="473">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geometri Ayarları -->
+                <div class="tab-pane fade" id="nav-geometry" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-shapes"></i> Geometri Parametreleri</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Üçgen Genişliği (mm):</label>
+                                        <input type="number" id="triangleWidth" class="form-control" min="200" max="800" step="0.1" placeholder="493">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Üçgen Açısı (°):</label>
+                                        <input type="number" id="triangleAngle" class="form-control" min="10" max="60" step="0.1" placeholder="27">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Varsayılan Profil Yüksekliği (mm):</label>
+                                        <input type="number" id="defaultProfileHeight" class="form-control" min="20" max="200" step="0.1" placeholder="80">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Varsayılan Büküm Yarıçapı (mm):</label>
+                                        <input type="number" id="defaultBendingRadius" class="form-control" min="100" max="2000" step="0.1" placeholder="500">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Adım Büyüklüğü (mm):</label>
+                                        <input type="number" id="stepSize" class="form-control" min="5" max="50" step="0.1" placeholder="20">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Güvenlik Ayarları -->
+                <div class="tab-pane fade" id="nav-safety" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-shield-alt"></i> Güvenlik ve Basınç Limitleri</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Maximum Basınç (bar):</label>
+                                        <input type="number" id="maxPressure" class="form-control" min="100" max="1000" step="1" placeholder="400">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Varsayılan Hedef Basınç (bar):</label>
+                                        <input type="number" id="defaultTargetPressure" class="form-control" min="10" max="200" step="1" placeholder="50">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Basınç Toleransı (±bar):</label>
+                                        <input type="number" id="pressureTolerance" class="form-control" min="1" max="20" step="0.1" placeholder="5">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Minimum Yağ Seviyesi (%):</label>
+                                        <input type="number" id="minOilLevel" class="form-control" min="5" max="50" step="1" placeholder="20">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Çalışma Yağ Sıcaklığı (°C):</label>
+                                        <input type="number" id="workingOilTemperature" class="form-control" min="20" max="60" step="1" placeholder="40">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Maximum Yağ Sıcaklığı (°C):</label>
+                                        <input type="number" id="maxOilTemperature" class="form-control" min="60" max="100" step="1" placeholder="80">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fan Açma Sıcaklığı (°C):</label>
+                                        <input type="number" id="fanOnTemperature" class="form-control" min="30" max="80" step="1" placeholder="50">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fan Kapama Sıcaklığı (°C):</label>
+                                        <input type="number" id="fanOffTemperature" class="form-control" min="25" max="75" step="1" placeholder="40">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yağ Sistemi Ayarları -->
+                <div class="tab-pane fade" id="nav-oil" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-oil-can"></i> Yağ Sistemi Konfigürasyonu</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">S1 Maksimum Basıncı (bar):</label>
+                                        <input type="number" id="s1MaxPressure" class="form-control" min="100" max="1000" step="1" placeholder="400">
+                                        <div class="form-text">S1 ana valf grubu için maksimum güvenli basınç değeri</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">S2 Maksimum Basıncı (bar):</label>
+                                        <input type="number" id="s2MaxPressure" class="form-control" min="100" max="1000" step="1" placeholder="400">
+                                        <div class="form-text">S2 ana valf grubu için maksimum güvenli basınç değeri</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Maksimum Akış Oranı (cm³/sn):</label>
+                                        <input type="number" id="maxFlowRate" class="form-control" min="100" max="500" step="1" placeholder="297">
+                                        <div class="form-text">Sistemin maksimum yağ akış kapasitesi</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Minimum Akış Oranı (cm³/sn):</label>
+                                        <input type="number" id="minFlowRate" class="form-control" min="0" max="100" step="1" placeholder="0">
+                                        <div class="form-text">Sistemin minimum çalışma akış oranı</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Bilgi:</strong> Yağ sistemi parametreleri makine güvenliği için kritik öneme sahiptir. 
+                                Değişiklik yapılırken makine dokümantasyonuna uygun hareket edilmelidir.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yağ Sistemi Ayarları -->
+                <div class="tab-pane fade" id="nav-oil" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-oil-can"></i> Yağ Sistemi Konfigürasyonu</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">S1 Maksimum Basıncı (bar):</label>
+                                        <input type="number" id="s1MaxPressure" class="form-control" min="100" max="1000" step="1" placeholder="400">
+                                        <div class="form-text">S1 ana valf grubu için maksimum güvenli basınç değeri</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">S2 Maksimum Basıncı (bar):</label>
+                                        <input type="number" id="s2MaxPressure" class="form-control" min="100" max="1000" step="1" placeholder="400">
+                                        <div class="form-text">S2 ana valf grubu için maksimum güvenli basınç değeri</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Maksimum Akış Oranı (cm³/sn):</label>
+                                        <input type="number" id="maxFlowRate" class="form-control" min="100" max="500" step="1" placeholder="297">
+                                        <div class="form-text">Sistemin maksimum yağ akış kapasitesi</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Minimum Akış Oranı (cm³/sn):</label>
+                                        <input type="number" id="minFlowRate" class="form-control" min="0" max="100" step="1" placeholder="0">
+                                        <div class="form-text">Sistemin minimum çalışma akış oranı</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Bilgi:</strong> Yağ sistemi parametreleri makine güvenliği için kritik öneme sahiptir. 
+                                Değişiklik yapılırken makine dokümantasyonuna uygun hareket edilmelidir.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Piston Ayarları -->
+                <div class="tab-pane fade" id="nav-pistons" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5><i class="fas fa-arrows-alt"></i> Piston Konfigürasyonu</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="pistonsContainer">
+                                <!-- Piston configurations will be dynamically generated -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notifications -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="settingsToast" class="toast" role="alert">
+        <div class="toast-header">
+            <i class="fas fa-info-circle text-primary me-2"></i>
+            <strong class="me-auto">Ayarlar</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body" id="toastMessage">
+            <!-- Message will be inserted here -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/settings.js" asp-append-version="true"></script>
+} 

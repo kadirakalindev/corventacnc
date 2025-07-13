@@ -1,0 +1,226 @@
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\appsettings.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.staticwebassets.runtime.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.staticwebassets.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.exe
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.runtimeconfig.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\bin\Debug\net9.0\System.Net.ServerSentEvents.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.RazorAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.RazorAssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\scopedcss\bundle\BendingMachine.Web.styles.css
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\scopedcss\projectbundle\BendingMachine.Web.bundle.scp.css
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\eziabein3q-hmt658y2zr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\4003g7mhyr-61n19gt1b8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\pte5g00uaq-qzzg1rza8m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\zm2diowypy-jhkmbuui4g.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\9zmf0kqhcq-xtxxf3hu2r.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\itwmj8srwc-bqjiyaj88i.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\keb7jxbofl-c2jlpeoesf.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\tttbrwqo1j-erw9l3u2r3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\kt0tw31xb5-aexeepp0ev.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\2qyr4wbkbo-d7shbmvgxk.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\2pkz089juh-ausgxo2sd3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ubnojd4ho7-k8d9w2qqmf.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\dtdodx3y5q-cosvhxvwiu.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\dttgnj0dpo-ub07r2b239.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\qzs0nyisy0-fvhpjtyr6v.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\w8k1v8v4tc-b7pk76d08c.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\2n11y03id1-fsbi9cje9m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\khuo9kaorl-rzd6atqjts.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\f1nm0d1au5-ee0r1s7dh0.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\joc4qcr34x-dxx9fxp4il.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\exo083k1ts-jd9uben2k1.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\55e7h1os15-khv3u5hwcm.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\j4lj03d1sr-r4e9w2rdcm.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\nujqgkwzpn-lcd1t2u6c8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\een0im7722-c2oey78nd0.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\br247083nz-tdbxkamptv.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\g0sv9db23l-j5mq2jizvt.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ns4e73hpbs-06098lyss8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\rv28oo8iym-nvvlpmu67g.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\2zza7kl6ms-s35ty4nyc5.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\cd4oqjxziw-pj5nd1wqec.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ds8aqj8jv0-46ein0sx1k.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\vxh1wus0vs-v0zj4ognzu.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\d8h8qszgkc-37tfw0ft22.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\gthgwm2t37-hrwsygsryq.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\i1ylip5diq-pk9g2wxc8p.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ec4b0fcyq6-ft3s53vfgj.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\r1n2ynnxnz-6cfz1n2cew.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\fzhxcvqho3-6pdc2jztkx.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\uq2sx4u7a1-493y06b0oq.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\aff03qol4y-iovd86k7lj.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ow774j2mk4-vr1egmr9el.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\t1j3to5k2i-kbrnm935zg.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\6vzaxgcb9m-jj8uyg4cgr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\f1kccuhgxv-y7v9cxd14o.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\266vgon6w1-notf2xhcfb.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\fc5vwedy6p-h1s4sie4z3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\fi6rua2ynu-63fj8s7r0e.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\ktm3r47v13-0j3bgjxly4.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\zkpckt2xbb-47otxtyo56.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\yw6a607gs9-4v8eqarkd7.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\dr085xzat2-356vix0kms.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\5quq2h00r8-83jwlth58m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\pp5ji2wp66-mrlpezrjn3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\dujn39ix3z-lzl9nlhx6b.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\awwep4iq80-ag7o75518u.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\k7u7oa1s7j-x0q3zqp4vz.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\hrb654xevs-0i3buxo5is.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\pvbbu7dbsm-o1o13a6vjx.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\v4kq5mca06-ttgo8qnofa.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\na1yo0tptz-2z0ns9nrw6.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\vc90y19uyv-muycvpuwrr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\084l293yyv-87fc7y1x7t.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\1oldlzuvsc-mlv21k5csn.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\vy7umcxwgr-tulho21ets.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\cnv2wuu06g-tulho21ets.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingM.880993D5.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\refint\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.genruntimeconfig.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\ref\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Web\obj\Debug\net9.0\compressed\h7unx3lzix-i9woa3r04r.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\appsettings.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\libman.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.staticwebassets.runtime.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.staticwebassets.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.exe
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.runtimeconfig.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\BendingMachine.Web.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.Features.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\bin\Debug\net9.0\System.Net.ServerSentEvents.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.RazorAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.RazorAssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\scopedcss\bundle\BendingMachine.Web.styles.css
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\scopedcss\projectbundle\BendingMachine.Web.bundle.scp.css
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\eziabein3q-iexbrnvzrr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\4003g7mhyr-61n19gt1b8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\h7unx3lzix-ck1bvzztjk.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\pte5g00uaq-s0k1opopxf.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\zm2diowypy-jw2qrhi71m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\9zmf0kqhcq-xtxxf3hu2r.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\itwmj8srwc-bqjiyaj88i.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\keb7jxbofl-c2jlpeoesf.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\tttbrwqo1j-erw9l3u2r3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\kt0tw31xb5-aexeepp0ev.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\2qyr4wbkbo-d7shbmvgxk.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\2pkz089juh-ausgxo2sd3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ubnojd4ho7-k8d9w2qqmf.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\dtdodx3y5q-cosvhxvwiu.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\dttgnj0dpo-ub07r2b239.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\qzs0nyisy0-fvhpjtyr6v.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\w8k1v8v4tc-b7pk76d08c.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\2n11y03id1-fsbi9cje9m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\khuo9kaorl-rzd6atqjts.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\f1nm0d1au5-ee0r1s7dh0.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\joc4qcr34x-dxx9fxp4il.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\exo083k1ts-jd9uben2k1.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\55e7h1os15-khv3u5hwcm.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\j4lj03d1sr-r4e9w2rdcm.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\nujqgkwzpn-lcd1t2u6c8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\een0im7722-c2oey78nd0.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\br247083nz-tdbxkamptv.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\g0sv9db23l-j5mq2jizvt.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ns4e73hpbs-06098lyss8.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\rv28oo8iym-nvvlpmu67g.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\2zza7kl6ms-s35ty4nyc5.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\cd4oqjxziw-pj5nd1wqec.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ds8aqj8jv0-46ein0sx1k.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\vxh1wus0vs-v0zj4ognzu.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\d8h8qszgkc-37tfw0ft22.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\gthgwm2t37-hrwsygsryq.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\i1ylip5diq-pk9g2wxc8p.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ec4b0fcyq6-ft3s53vfgj.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\r1n2ynnxnz-6cfz1n2cew.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\fzhxcvqho3-6pdc2jztkx.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\uq2sx4u7a1-493y06b0oq.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\aff03qol4y-iovd86k7lj.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ow774j2mk4-vr1egmr9el.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\t1j3to5k2i-kbrnm935zg.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\6vzaxgcb9m-jj8uyg4cgr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\f1kccuhgxv-y7v9cxd14o.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\266vgon6w1-notf2xhcfb.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\fc5vwedy6p-h1s4sie4z3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\fi6rua2ynu-63fj8s7r0e.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\ktm3r47v13-0j3bgjxly4.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\zkpckt2xbb-47otxtyo56.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\yw6a607gs9-4v8eqarkd7.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\dr085xzat2-356vix0kms.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\5quq2h00r8-83jwlth58m.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\pp5ji2wp66-mrlpezrjn3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\dujn39ix3z-lzl9nlhx6b.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\awwep4iq80-ag7o75518u.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\k7u7oa1s7j-x0q3zqp4vz.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\hrb654xevs-0i3buxo5is.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\pvbbu7dbsm-o1o13a6vjx.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\v4kq5mca06-ttgo8qnofa.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\na1yo0tptz-2z0ns9nrw6.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\vc90y19uyv-muycvpuwrr.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\084l293yyv-87fc7y1x7t.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\1oldlzuvsc-mlv21k5csn.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\hibl5u0ojk-cqu3aupeo3.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\y98tgopkbb-a39ckpyprj.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\vy7umcxwgr-tulho21ets.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\compressed\cnv2wuu06g-tulho21ets.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingM.880993D5.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\refint\BendingMachine.Web.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\BendingMachine.Web.genruntimeconfig.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Web\obj\Debug\net9.0\ref\BendingMachine.Web.dll

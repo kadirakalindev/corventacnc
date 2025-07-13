@@ -1,0 +1,30 @@
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingM.68DA5F19.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\refint\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Infrastructure\obj\Debug\net9.0\ref\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingM.68DA5F19.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\refint\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Infrastructure\obj\Debug\net9.0\ref\BendingMachine.Infrastructure.dll

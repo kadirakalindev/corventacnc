@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BendingMachine.Application\BendingMachine.Application.csproj" />
+    <ProjectReference Include="..\BendingMachine.Domain\BendingMachine.Domain.csproj" />
+    <ProjectReference Include="..\BendingMachine.Driver\BendingMachine.Driver.csproj" />
+    <ProjectReference Include="..\BendingMachine.Infrastructure\BendingMachine.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

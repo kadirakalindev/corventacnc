@@ -1,0 +1,106 @@
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\appsettings.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.staticwebassets.runtime.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.staticwebassets.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.exe
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.runtimeconfig.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\NModbus.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\scopedcss\bundle\BendingMachine.Api.styles.css
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\compressed\lub8y87ytl-puzajuszg7.gz
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingM.B2CB476A.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\refint\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.genruntimeconfig.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Api\obj\Debug\net9.0\ref\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\appsettings.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.staticwebassets.runtime.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.staticwebassets.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.exe
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.runtimeconfig.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Api.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\NModbus.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Driver.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Infrastructure.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Driver.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\bin\Debug\net9.0\BendingMachine.Infrastructure.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\scopedcss\bundle\BendingMachine.Api.styles.css
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\compressed\lub8y87ytl-puzajuszg7.gz
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingM.B2CB476A.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\refint\BendingMachine.Api.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\BendingMachine.Api.genruntimeconfig.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Api\obj\Debug\net9.0\ref\BendingMachine.Api.dll

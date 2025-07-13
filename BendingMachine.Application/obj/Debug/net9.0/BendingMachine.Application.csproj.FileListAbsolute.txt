@@ -1,0 +1,30 @@
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingM.B768A7F6.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\refint\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending\BendingMachine.Application\obj\Debug\net9.0\ref\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.deps.json
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Domain.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\bin\Debug\net9.0\BendingMachine.Domain.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.csproj.AssemblyReference.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.AssemblyInfoInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.AssemblyInfo.cs
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.csproj.CoreCompileInputs.cache
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingM.B768A7F6.Up2Date
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\refint\BendingMachine.Application.dll
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\BendingMachine.Application.pdb
+C:\Users\Kadir\Desktop\CorventaCncBending - YEDEKS\BendingMachine.Application\obj\Debug\net9.0\ref\BendingMachine.Application.dll
