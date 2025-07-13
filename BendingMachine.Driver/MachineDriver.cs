@@ -2386,6 +2386,10 @@ public class MachineDriver : IMachineDriver
             await UpdateMachineStatusAsync();
             bool currentSensorState = useLeftSensor ? _currentStatus.LeftPartPresent : _currentStatus.RightPartPresent;
             
+            // ✨ YENİ: Sensör kontrol değişkenleri - metod başında tanımla
+            var sensorLostCount = 0;
+            const int requiredSensorLostCount = 3; // 3 kez üst üste görmemeli
+            
             if (currentSensorState)
             {
                 // DURUM A: Sensör parçayı görüyor
@@ -2400,8 +2404,7 @@ public class MachineDriver : IMachineDriver
                 // ✨ YENİ: Çok daha sık sensör okuma (100ms→50ms)
                 var maxWaitTime = TimeSpan.FromSeconds(20); // 15s→20s daha uzun timeout
                 var startTime = DateTime.UtcNow;
-                var sensorLostCount = 0;
-                const int requiredSensorLostCount = 3; // 3 kez üst üste görmemeli
+                sensorLostCount = 0; // Metod başında tanımlandı
                 
                 while ((DateTime.UtcNow - startTime) < maxWaitTime)
                 {
@@ -2484,7 +2487,7 @@ public class MachineDriver : IMachineDriver
                 await StartRotationAsync(clockwiseDirection, normalSpeed);
                 
                 startTime = DateTime.UtcNow;
-                sensorLostCount = 0;
+                sensorLostCount = 0; // Zaten metod başında tanımlandı
                 
                 while ((DateTime.UtcNow - startTime) < maxWaitTime)
                 {
