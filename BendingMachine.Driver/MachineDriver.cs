@@ -2483,6 +2483,8 @@ public class MachineDriver : IMachineDriver
             
             var mediumStartTime = DateTime.UtcNow;
             bool sensorSeenInMedium = false;
+            int sensorLostCount = 0;
+            const int requiredSensorLostCount = 3;
             
             while ((DateTime.UtcNow - mediumStartTime) < TimeSpan.FromSeconds(15))
             {
@@ -2495,6 +2497,15 @@ public class MachineDriver : IMachineDriver
                     _logger?.LogInformation("✅ Adım 2 Tamamlandı: Sensör parçayı görmeye başladı");
                     sensorSeenInMedium = true;
                     break;
+                }
+                else
+                {
+                    sensorLostCount++;
+                    if (sensorLostCount >= requiredSensorLostCount)
+                    {
+                        _logger?.LogWarning("⚠️ Adım 2: Sensör kaybetti - {Count} kez kaybetme", sensorLostCount);
+                        break;
+                    }
                 }
             }
             
